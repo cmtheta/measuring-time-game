@@ -9,7 +9,7 @@ def top(request):
 def game(request):
     return HttpResponse('ゲーム画面')
 
-def game_record(request):
+def game_record(request, user_id):
     return HttpResponse('ゲーム結果の閲覧')
 
 def game_ranking(request):
