@@ -1,3 +1,9 @@
 # measuring-time-game
 
-製作途中
+時間あてゲーム
+
+# Usage
+ 
+```bash
+docker-compose up
+```
