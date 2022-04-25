@@ -4,10 +4,8 @@ from django.http import HttpResponse
 from pkg_resources import require
 from django.contrib.auth.decorators import login_required
 
-
 from gameapp.forms import RecordForm
 from gameapp.models import Record
-# Create your views here.
 
 def top(request):
     return render(request, "gameapp/top.html")
@@ -20,7 +18,6 @@ def game(request):
             record = form.save(commit=False)
             record.created_by = request.user
             record.save()
-
             return redirect(game)
         else:
             pass
