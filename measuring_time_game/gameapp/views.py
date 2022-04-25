@@ -33,7 +33,3 @@ def game_record(request):
     records = Record.objects.filter( created_by = user).all()
     return render(request, "gameapp/record.html", {"records" : records} )
 
-
-@login_required
-def game_ranking(request):
-    return HttpResponse('ランキングの閲覧')

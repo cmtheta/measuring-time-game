@@ -5,5 +5,4 @@ from gameapp import views
 urlpatterns = [
     path("", views.game , name="game"),
     path("record/", views.game_record , name="game_record"),
-    path("ranking/", views.game_ranking , name="game_ranking"),
 ]
