@@ -6,15 +6,26 @@
 
 <h2>Game Page</h2>
 <div id="content">
-    <a href="{% url 'game_record' %}">今までの記録</a>
+    <a class="btn btn-primary" href="{% url 'game_record' %}" role="button">今までの記録</a>
     <form method="post" name="form">
         {% csrf_token %}
         <input type="hidden" id="target_time" name="target_time" value="5.000" />
         <input type="hidden" id="record" name="record" value="" />
     </form>
-    <div id="target"></div>
-    <div id="button" class="button"></div>
-    <div id="result"></div>
+</div>
+
+<div class="card text-center">
+    <div id="target" class="card-header">
+      
+    </div>
+    <div class="card-body">
+      {% comment %} <h5 class="card-title">Special title treatment</h5> {% endcomment %}
+      <p class="card-text">１．下のボタンを押すと時間の計測が始まります</p>
+      <p class="card-text">２．上に書いてある秒数に近づいたらもう一度ボタンを押してください</p>
+      <div id="button" class="button btn btn-primary"></div>
+    </div>
+    <div id="result" class="card-footer text-muted">
+    </div>
 </div>
 
 <script type="text/javascript" src="{% static 'gameapp/js/game_main.js' %}"></script>

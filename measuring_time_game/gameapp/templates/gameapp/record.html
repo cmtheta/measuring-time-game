@@ -2,12 +2,12 @@
 
 {% block main %}
 <h2>Records</h2>
-<a href="{% url 'game' %}">ゲームに戻る</a>
-<table class="record-table">
+<a class="btn btn-primary" href="{% url 'game' %}" role="button">ゲームに戻る</a>
+<table class="table">
     <tr>
-        <th>記録した時間</th>
-        <th>目標時間</th>
-        <th>結果</th>
+        <th scope="col">記録した時間</th>
+        <th scope="col">目標時間</th>
+        <th scope="col">結果</th>
     </tr>
     {% for record in records %}
     <tr>

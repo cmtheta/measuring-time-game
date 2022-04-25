@@ -3,6 +3,8 @@
 {% block main %}
 
 <h1>TOP PAGE</h1>
-<a href="{% url 'game' %}">GAME START</a>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <a class="btn btn-primary" href="{% url 'game' %}" role="button">GAME START</a>
+</div>
 
 {% endblock %}
