@@ -27,6 +27,6 @@ def game(request):
 @login_required
 def game_record(request):
     user = request.user
-    records = Record.objects.filter( created_by = user).all()
+    records = Record.objects.filter( created_by = user)
     return render(request, "gameapp/record.html", {"records" : records} )
 
