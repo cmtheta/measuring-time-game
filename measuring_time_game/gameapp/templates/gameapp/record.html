@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Records</h2>
+<a href="{% url 'game' %}">ゲームに戻る</a>
+<table class="record-table">
+    <tr>
+        <th>記録した時間</th>
+        <th>目標時間</th>
+        <th>結果</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+        <td>{{ record.created_at }}</td>
+        <td>{{ record.target_time }}</td>
+        <td>{{ record.record }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+

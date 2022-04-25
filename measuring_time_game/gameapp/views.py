@@ -1,6 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from pkg_resources import require
+from django.contrib.auth.decorators import login_required
+
 
 from gameapp.forms import RecordForm
 from gameapp.models import Record
@@ -9,6 +12,7 @@ from gameapp.models import Record
 def top(request):
     return render(request, "gameapp/top.html")
 
+@login_required
 def game(request):
     if request.method == 'POST':
         form = RecordForm(request.POST)
@@ -16,13 +20,20 @@ def game(request):
             record = form.save(commit=False)
             record.created_by = request.user
             record.save()
+
             return redirect(game)
         else:
-            print("Hello World")
-    return render(request, "gameapp/game.html")
+            pass
+    else:
+        return render(request, "gameapp/game.html")
 
-def game_record(request, user_id):
-    return HttpResponse('ゲーム結果の閲覧')
+@login_required
+def game_record(request):
+    user = request.user
+    records = Record.objects.filter( created_by = user).all()
+    return render(request, "gameapp/record.html", {"records" : records} )
 
+
+@login_required
 def game_ranking(request):
     return HttpResponse('ランキングの閲覧')
